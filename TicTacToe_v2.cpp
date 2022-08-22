@@ -21,8 +21,6 @@ std::string getPlayerName(PlayerId player)
     {
         return player2;
     }
-
-    return "this is an error and should be treated via exceptions, but this is a story for another time";
 }
 
 bool isAnyMoveLeft()
@@ -31,7 +29,7 @@ bool isAnyMoveLeft()
         for (int j = 0; i < 3; i++)
             if (board[i][j] == 0)
                 return true;
-    return false; // complex check to see if all board squares have been filled
+    return false;
 }
 
 std::optional<PlayerId> isAnyWinner()
@@ -83,22 +81,6 @@ std::optional<PlayerId> isAnyWinner()
         return PlayerId::TWO;
 
     return std::nullopt;
-}
-
-bool isGameFinished() // unused function, but good example to see how functions tie together
-{
-    const auto winner = isAnyWinner();
-    if (winner.has_value())
-    {
-        return true;
-    }
-
-    return isAnyMoveLeft();
-}
-
-bool isTie() // unused function, but good example to see how functions tie together
-{
-    return !isAnyWinner().has_value() && !isAnyMoveLeft();
 }
 
 void printBoard()
