@@ -71,5 +71,3 @@ int main()
         if (i == 8) std::cout << "game ended. it's a tie!";
     } 
 }
-
-
